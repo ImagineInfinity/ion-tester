@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ions</title>
+        <style media="screen">
+            input{-webkit-border-radius:4;-moz-border-radius:4;border-radius:4px;border:none;-webkit-box-shadow:3px 6px 15px #3e4247;-moz-box-shadow:3px 6px 15px #3e4247;box-shadow:3px 6px 15px #3e4247;color:#39373d;font-size:5.5vh;background:#45d139;padding:3px 7px}input:hover{background:#b82c33;text-decoration:none}input:active{box-shadow:2px 6px 10px #3e4247;margin:3px 0 0 3px}input[type="checkbox" i]{height:6vh;width:6vh}body{background-color:#66cdaa;color:#404440;font-size:5.5vh}#limit_ions:checked + div #pick_ions{visibility:visible}#pick_ions{margin-top:1vh;visibility:hidden;height:85vh;width:30vw;overflow-y:scroll;background:#e9967a}
+        </style>
+    </head>
+    <body>
+        <p id="question"></p>
+        <p id="answer"></p>
+        <input type="button" name="button" value="start" onclick="prac2_return = startPrac2();">
+        <input type="button" name="button" value="check" onclick="submitPrac2()">
+        <div style="top: 1vh; right: 20vw; position: absolute;">
+            Limit ions<input type="checkbox" id="limit_ions">
+            <div>
+                <div id="pick_ions"></div>
+            </div>
+        </div>
+        <script type="text/javascript">
+var theIons={Magnesium:"Mg<sup>2+</sup>",Calcium:"Ca<sup>2+</sup>",Barium:"Ba<sup>2+</sup>",Aluminium:"Al<sup>3+</sup>",Ammonium:"NH<sub>4</sub><sup>+</sup>",Hydroxide:"OH<sup>-</sup>",Nitrate:"NO<sub>3</sub><sup>-</sup>",Nitrite:"NO<sub>2</sub><sup>-</sup>","Hydrogen Carbonate":"HCO<sub>3</sub><sup>-</sup>","Dihydrogen phosphate":"H<sub>2</sub>PO<sub>4</sub><sup>-</sup>","Hydrogen Sulfate":"HSO<sub>4</sub><sup>-</sup>",Ethanoate:"CH<sub>3</sub>COO<sup>-</sup>",Hypochlorite:"ClO<sup>-</sup>",Permanganate:"MnO<sub>4</sub><sup>-</sup>",
+Bisulfite:"HSO<sub>3</sub><sup>-</sup>",Hydride:"H<sup>-</sup>",Fluride:"F<sup>-</sup>",Chloride:"Cl<sup>-</sup>",Bromide:"Br<sup>-</sup>",Iodine:"I<sup>-</sup>",Chlorite:"ClO<sub>2</sub><sup>-</sup>",Chlorate:"ClO<sub>3</sub><sup>-</sup>",Cyanide:"CN<sup>-</sup>",Perchlorate:"ClO<sub>4</sub><sup>-</sup>",Carbonate:"CO<sub>3</sub><sup>2-</sup>",Sulfate:"SO<sub>4</sub><sup>2-</sup>",Sulfite:"SO<sub>3</sub><sup>2-</sup>",Sulphide:"S<sup>2-</sup>",Dichromate:"CrO<sub>4</sub><sup>2-</sup>",Chromate:"CrO<sub>4</sub><sup>2-</sup>",
+"Hydrogen phosphate":"HPO<sub>4</sub><sup>2-</sup>",Oxide:"O<sup>2-</sup>",Peroxide:"O<sub>2</sub><sup>2-</sup>",Oxalate:"C<sub>2</sub>O<sub>4</sub><sup>2-</sup>",Phosphate:"PO<sub>4</sub><sup>3-</sup>",Phosphide:"P<sup>3-</sup>",Nitride:"N<sup>3-</sup>"},ions=theIons,ionsArray=[],ionsHtmlObject={};Object.keys(ions).forEach(function(a){ionsArray.push(a)});
+for(var i=0;i<ionsArray.length;i++)ionsHtmlObject[ionsArray[i]]=ionsArray[i]+' <input class="useIons" style="height: 6vh; width: 6vh;" type="checkbox" id="${ionsArray[i]}"><br>'.replace("${ionsArray[i]}","Use"+ionsArray[i]);Object.keys(ionsHtmlObject).forEach(function(a){document.getElementById("pick_ions").innerHTML=document.getElementById("pick_ions").innerHTML+ionsHtmlObject[a]});
+function startPrac2(){var a=0;if(document.getElementById("limit_ions").checked){ions={};for(var c=document.getElementsByClassName("useIons"),b=0;b<c.length;b++)c[b].checked&&(ions[c[b].id.replace("Use","")]=theIons[c[b].id.replace("Use","")])}else ions=theIons;for(var d in ions)if(Math.random()<1/++a)var e=d;return document.getElementById("question").innerHTML=e}function submitPrac2(){var a=prac2_return;document.getElementById("answer").innerHTML=ions[a]};
+        </script>
+    </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ions</title>
+<style>
+h1{font-size:17vh;margin-top:0}body{background-color:#66cdaa;color:#404440;font-size:5.5vh}textarea{font-size:6vh;margin-bottom:-2.3vh}input{-webkit-border-radius:4;-moz-border-radius:4;border-radius:4px;border:none;-webkit-box-shadow:3px 6px 15px #3e4247;-moz-box-shadow:3px 6px 15px #3e4247;box-shadow:3px 6px 15px #3e4247;color:#39373d;font-size:5.5vh;background:#45d139;padding:3px 7px}input:hover{background:#b82c33;text-decoration:none}input:active{box-shadow:2px 6px 10px #3e4247;margin:3px 0 0 3px}textarea[name="prac_one_input"]{white-space:nowrap;overflow:hidden;resize:none;width:50vw}input[type="checkbox" i]{height:6vh;width:6vh}#score{background-color:#8fbc8f;width:32vw;height:auto;position:absolute;top:29vh;right:10vh;font-size:5vw}#limit_ions:checked + div #pick_ions{visibility:visible}#settings{top:1vh;position:absolute}#pick_ions{visibility:hidden;margin-left:-30vh;height:25vh;width:25vw;overflow-y:scroll;background:#e9967a}#limit_ions_div{margin-top:5vh;float:right;margin-right:42vw}#restart_on_enter_span{float:right;margin-right:42vw}#percentage_right{float:right;margin:0;margin-top:-15vh;font-size:10vh}
+</style>
+</head>
+<body>
+<h1>Ions</h1>
+<div id="limit_ions_div">
+Limit ions<input style="height: 6vh; width: 6vh;" type="checkbox" id="limit_ions">
+<div id="settings">
+<div id="pick_ions"></div>
+</div>
+</div>
+<form>
+<span id="restart_on_enter_span">No need for upper case<input type="checkbox" id="decap"></span>
+<span id="restart_on_enter_span">Restart on check<input type="checkbox" id="restart_on_enter"></span>
+<input type="button" name="button" value="start" onclick="prac1_return = startPrac1();">
+<p id="variables_for_prac1"></p>
+<p id="messeges_for_prac1"></p>
+<textarea placeholder="insert answer here" onkeyup="if (event.keyCode==13) submitPrac1();" rows="1" name="prac_one_input"></textarea>
+<input type="button" name="button" value="check" onclick="submitPrac1()">
+</form>
+<div id="score">
+Correct: <span style="float:right" id="correct">0</span><br>
+Incorrect: <span style="float:right" id="incorrect">0</span>
+</div>
+<span id="wrong_answer_messages">
+<p id="correct_answer" style="color: crimson;"></p>
+<p id="percentage_right"></p></span>
+<script>
+var theIons={Hydrogen:"H<sup>+</sup>",Lithium:"Li<sup>+</sup>",Sodium:"Na<sup>+</sup>",Potassium:"K<sup>+</sup>","Copper(I)":"Cu<sup>+</sup>","Gold(I)":"Au<sup>+</sup>",Ammonium:"NH<sub>4</sub><sup>+</sup>",Caesium:"Cs<sup>+</sup>",Rubidium:"Rb<sup>+</sup>",Magnesium:"Mg<sup>2+</sup>",Calcium:"Ca<sup>2+</sup>",Barium:"Ba<sup>2+</sup>","Manganese(II)":"Mn<sup>2+</sup>","Iron(II)":"Fe<sup>2+</sup>","Copper(II)":"Cu<sup>2+</sup>",Zinc:"Zn<sup>2+</sup>",Cadmium:"Cd<sup>2+</sup>","Mercury(II)":"Hg<sup>2+</sup>",
+"Tin(II)":"Sn<sup>2+</sup>","Lead(II)":"Pb<sup>2+</sup>",Strontium:"Sr<sup>2+</sup>","Nickel(II)":"Ni<sup>2+</sup>","Cobalt(II)":"Co<sup>2+</sup>","Mercury(II)":"Hg<sub>2</sub><sup>2+</sup>",Aluminium:"Al<sup>3+</sup>","Iron(III)":"Fe<sup>3+</sup>","Chromium(III)":"Cr<sup>3+</sup>","Gold(III)":"Au<sup>3+</sup>","Tin(IV)":"Sn<sup>4+</sup>","Lead(IV)":"Pb<sup>4+</sup>",Hydroxide:"OH<sup>-</sup>",Nitrate:"NO<sub>3</sub><sup>-</sup>",Nitrite:"NO<sub>2</sub><sup>-</sup>","Hydrogen Carbonate":"HCO<sub>3</sub><sup>-</sup>",
+"Dihydrogen phosphate":"H<sub>2</sub>PO<sub>4</sub><sup>-</sup>","Hydrogen Sulfate":"HSO<sub>4</sub><sup>-</sup>",Ethanoate:"CH<sub>3</sub>COO<sup>-</sup>",Hypochlorite:"ClO<sup>-</sup>",Permanganate:"MnO<sub>4</sub><sup>-</sup>",Bisulfite:"HSO<sub>3</sub><sup>-</sup>",Hydride:"H<sup>-</sup>",Fluride:"F<sup>-</sup>",Chloride:"Cl<sup>-</sup>",Bromide:"Br<sup>-</sup>",Iodine:"I<sup>-</sup>",Chlorite:"ClO<sub>2</sub><sup>-</sup>",Chlorate:"ClO<sub>3</sub><sup>-</sup>",Cyanide:"CN<sup>-</sup>",Perchlorate:"ClO<sub>4</sub><sup>-</sup>",
+Carbonate:"CO<sub>3</sub><sup>2-</sup>",Sulfate:"SO<sub>4</sub><sup>2-</sup>",Sulfite:"SO<sub>3</sub><sup>2-</sup>",Sulphide:"S<sup>2-</sup>",Dichromate:"CrO<sub>4</sub><sup>2-</sup>",Chromate:"CrO<sub>4</sub><sup>2-</sup>","Hydrogen phosphate":"HPO<sub>4</sub><sup>2-</sup>",Oxide:"O<sup>2-</sup>",Peroxide:"O<sub>2</sub><sup>2-</sup>",Oxalate:"C<sub>2</sub>O<sub>4</sub><sup>2-</sup>",Phosphate:"PO<sub>4</sub><sup>3-</sup>",Phosphide:"P<sup>3-</sup>",Nitride:"N<sup>3-</sup>"},ions=theIons,ionsArray=
+[],ionsHtmlObject={};Object.keys(ions).forEach(function(a){ionsArray.push(a)});for(var i=0;i<ionsArray.length;i++)ionsHtmlObject[ionsArray[i]]=ionsArray[i]+' <input class="useIons" style="height: 6vh; width: 6vh;" type="checkbox" id="${ionsArray[i]}"><br>'.replace("${ionsArray[i]}","Use"+ionsArray[i]);Object.keys(ionsHtmlObject).forEach(function(a){document.getElementById("pick_ions").innerHTML=document.getElementById("pick_ions").innerHTML+ionsHtmlObject[a]});
+function startPrac1(){var a=document.getElementById("variables_for_prac1");document.getElementById("messeges_for_prac1").innerHTML="...";if(document.getElementById("limit_ions").checked){ions={};for(var c=document.getElementsByClassName("useIons"),b=0;b<c.length;b++)c[b].checked&&(ions[c[b].id.replace("Use","")]=theIons[c[b].id.replace("Use","")])}else ions=theIons;var c=0,e;for(e in ions)if(Math.random()<1/++c)var f=e;a.innerHTML="Ion: "+ions[f];return f}
+function submitPrac1(){var a=document.getElementById("correct").innerHTML,c=document.getElementById("incorrect").innerHTML,b=document.getElementsByName("prac_one_input")[0].value,e=document.getElementById("messeges_for_prac1"),f=document.getElementById("restart_on_enter").checked,d=prac1_return,g=0;document.getElementById("decap").checked&&(d=d.toLowerCase(),b=b.toLowerCase());if(b.trim()==d)e.innerHTML="Correct!!! Nice job :)",document.getElementById("correct").innerHTML=Number(a)+1,f&&(prac1_return=
+startPrac1());else if(3<b.trim().length){for(a=0;a<b.length;a++)if(b[a]!=d[a]){g=a;break}g/=d.length;document.getElementById("incorrect").innerHTML=(Number(c)+1-g).toFixed(3);e.innerHTML="Sorry... That's incorrect.";document.getElementById("percentage_right").innerHTML=(100*g).toFixed(3)+"%";f&&(document.getElementById("correct_answer").innerHTML=d,prac1_return=startPrac1())}document.getElementsByName("prac_one_input")[0].value=""};
+</script>
+</body>
+</html>
