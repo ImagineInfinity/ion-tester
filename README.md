@@ -1,5 +1,17 @@
 # Ion-tester #
 Made to help learning ions.
+## A note on learning ##
+This project does not do what it was supposed to.
+### How the brain chooses what to store more
+- Things that happened first
+- Things that were more recent
+- Suprising things
+- Things with a suprising impact
+- Repitition (This is what was attempted in this project)
+You can read more [here](https://www.quora.com/How-does-the-human-brain-decide-which-memories-to-store/answer/Paul-King-2?srid=JiCC)
+
+A problem with this project is that it does more harm than good. If you wish to learn the ions, do it naturally - by doing a lot of problems. The ions that turn up more frequently, you will remember; but the ones that turn up less, you don't need to.
+
 ## Ion name tester ##
 ![Name test screenshot](screenshots/ion_name_test_screen_shot.JPG)
 * "Limit ions": choose which ions you want to learn
