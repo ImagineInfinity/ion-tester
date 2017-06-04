@@ -1,295 +1,306 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Ions</title>
-        <style>
-            h1 {
-                font-size: 17vh;
-                margin-top: 0;
-            }
-            body {
-                background-color: mediumaquamarine;
-                color: rgb(64, 68, 64);
-                font-size: 5.5vh;
-            }
-            textarea {
-                font-size: 6vh;
-                margin-bottom: -2.3vh;
-            }
-            input {
-                -webkit-border-radius: 4;
-                -moz-border-radius: 4;
-                border-radius: 4px;
-                border: none;
-                -webkit-box-shadow: 3px 6px 15px #3e4247;
-                -moz-box-shadow: 3px 6px 15px #3e4247;
-                box-shadow: 3px 6px 15px #3e4247;
-                color: #39373d;
-                font-size: 5.5vh;
-                background: #45d139;
-                padding: 3px 7px 3px 7px;
-            }
-            input:hover {
-                background: #b82c33;
-                text-decoration: none;
-            }
-            input:active {
-                box-shadow: 2px 6px 10px #3e4247;
-                margin: 3px 0 0 3px;
-            }
-            textarea[name="prac_one_input"] {
-                white-space: nowrap;
-                overflow: hidden;
-                resize: none;
-                width: 50vw;
-            }
-            input[type="checkbox" i] {
-                height: 6vh;
-                width: 6vh;
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ions</title>
+
+    <style>
+        h1 {
+            font-size: 17vh;
+            margin-top: 0;
+        }
+        
+        body {
+            background-color: mediumaquamarine;
+            color: rgb(64, 68, 64);
+            font-size: 5.5vh;
+        }
+        
+        textarea {
+            font-size: 6vh;
+            margin-bottom: -2.3vh;
+        }
+        
+        input {
+            -webkit-border-radius: 4;
+            -moz-border-radius: 4;
+            border-radius: 4px;
+            border: none;
+            -webkit-box-shadow: 3px 6px 15px #3e4247;
+            -moz-box-shadow: 3px 6px 15px #3e4247;
+            box-shadow: 3px 6px 15px #3e4247;
+            color: #39373d;
+            font-size: 5.5vh;
+            background: #45d139;
+            padding: 3px 7px 3px 7px;
+        }
+        
+        input:hover {
+            background: #b82c33;
+            text-decoration: none;
+        }
+        
+        input:active {
+            box-shadow: 2px 6px 10px #3e4247;
+            margin: 3px 0 0 3px;
+        }
+        
+        textarea[name="prac_one_input"] {
+            white-space: nowrap;
+            overflow: hidden;
+            resize: none;
+            width: 50vw;
+        }
+        
+        input[type="checkbox" i] {
+            height: 6vh;
+            width: 6vh;
+        }
+        
+        #score {
+            background-color: darkseagreen;
+            width: 32vw;
+            height: auto;
+            position: absolute;
+            top: 29vh;
+            right: 10vh;
+            font-size: 5vw;
+        }
+        
+        #limit_ions:checked+div #pick_ions {
+            visibility: visible;
+        }
+        
+        #settings {
+            top: 1vh;
+            position: absolute;
+        }
+        
+        #pick_ions {
+            visibility: hidden;
+            margin-left: -30vh;
+            height: 25vh;
+            width: 25vw;
+            overflow-y: scroll;
+            background: darksalmon;
+        }
+        
+        #limit_ions_div {
+            margin-top: 5vh;
+            float: right;
+            margin-right: 42vw;
+        }
+        
+        #restart_on_enter_span,
+        #decap_span {
+            float: right;
+            margin-right: 42vw;
+        }
+        
+        #percentage_right {
+            float: right;
+            margin: 0;
+            margin-top: -15vh;
+            font-size: 10vh;
+        }
+        
+        @media all and (max-width:426px) {
+            #limit_ions_div,
+            #restart_on_enter_span {
+                margin-right: 10vw;
             }
             #score {
-                background-color: darkseagreen;
-                width: 32vw;
-                height: auto;
-                position: absolute;
-                top: 29vh;
-                right: 10vh;
-                font-size: 5vw;
-            }
-            #limit_ions:checked + div #pick_ions {
-                visibility: visible;
-            }
-            #settings {
-                top: 1vh;
-                position: absolute;
+                top: 25vh;
+                right: 8vh;
             }
             #pick_ions {
-                visibility: hidden;
-                margin-left: -30vh;
-                height: 25vh;
-                width: 25vw;
-                overflow-y: scroll;
-                background: darksalmon;
+                margin-left: 0;
+                height: 22vh;
+                width: 48vw;
             }
-            #limit_ions_div {
-                margin-top: 5vh;
-                float: right;
-                margin-right: 42vw;
+            textarea[name="prac_one_input"] {
+                width: 66.1vw;
             }
+        }
+        
+        @media all and (max-width:375px) {
+            #limit_ions_div,
             #restart_on_enter_span {
-                float: right;
-                margin-right: 42vw;
+                margin-right: 0;
+            }
+            #score {
+                right: 2vh;
+            }
+            textarea[name="prac_one_input"] {
+                width: 66vw;
+            }
+        }
+        
+        @media all and (max-width:320px) {
+            h1 {
+                font-size: 14vh;
+            }
+            body {
+                font-size: 4vh;
+            }
+            form {
+                margin-top: 10vh;
             }
             #percentage_right {
-                float: right;
-                margin: 0;
-                margin-top: -15vh;
-                font-size: 10vh;
+                margin-top: -11vh;
+                font-size: 8vh;
             }
-            @media all and (max-width:426px) {
-                #limit_ions_div, #restart_on_enter_span {
-                    margin-right: 10vw;
-                }
-                #score {
-                    top: 25vh;
-                    right: 8vh;
-                }
-                #pick_ions {
-                    margin-left: 0;
-                    height: 22vh;
-                    width: 48vw;
-                }
-                textarea[name="prac_one_input"] {
-                    width: 66.1vw;
-                }
+            textarea[name="prac_one_input"] {
+                width: 60.8vw;
             }
-            @media all and (max-width:375px) {
-                #limit_ions_div, #restart_on_enter_span {
-                    margin-right: 0;
-                }
-                #score {
-                    right: 2vh;
-                }
-                textarea[name="prac_one_input"] {
-                    width: 66vw;
-                }
-            }
-            @media all and (max-width:320px) {
-                h1 {
-                    font-size: 14vh;
-                }
-                body {
-                    font-size: 4vh;
-                }
-                form {
-                    margin-top: 10vh;
-                }
-                #percentage_right {
-                    margin-top: -11vh;
-                    font-size: 8vh;
-                }
-                textarea[name="prac_one_input"] {
-                    width: 60.8vw;
-                }
-            }
-        </style>
-    </head>
-    <body>
-        <h1>Ions</h1>
-        <div id="limit_ions_div">
-            Limit ions<input style="height: 6vh; width: 6vh;" type="checkbox" id="limit_ions">
-            <div id="settings">
-                <div id="pick_ions"></div>
-            </div>
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>Ions</h1>
+    <div id="limit_ions_div">Limit ions<input style="height: 6vh; width: 6vh;" type="checkbox" id="limit_ions">
+        <div id="settings">
+            <div id="pick_ions"></div>
         </div>
-        <form>
-                <span id="restart_on_enter_span">No need for upper case<input type="checkbox" id="decap"></span>
-                <span id="restart_on_enter_span">Restart on check<input type="checkbox" id="restart_on_enter"></span>
-                <input type="button" name="button" value="start" onclick="prac1_return = startPrac1();">
-                <p id="variables_for_prac1"></p>
-                <p id="messeges_for_prac1"></p>
-                <textarea placeholder="insert answer here" onkeyup="if (event.keyCode==13) submitPrac1();" rows="1" name="prac_one_input"></textarea>
-                <input type="button" name="button" value="check" onclick="submitPrac1()">
-        </form>
-        <div id="score">
-            Correct: <span style="float:right" id="correct">0</span><br>
-            Incorrect: <span style="float:right" id="incorrect">0</span>
-        </div>
-        <span id="wrong_answer_messages">
-            <p id="correct_answer" style="color: crimson;"></p>
-            <p id="percentage_right"></p></span>
-        <script>
-            var theIons = {
-                "Hydrogen": "H<sup>+</sup>",
-                "Lithium": "Li<sup>+</sup>",
-                "Sodium": "Na<sup>+</sup>",
-                "Potassium": "K<sup>+</sup>",
-                "Copper(I)": "Cu<sup>+</sup>",
-                "Gold(I)": "Au<sup>+</sup>",
-                "Ammonium": "NH<sub>4</sub><sup>+</sup>",
-                "Caesium": "Cs<sup>+</sup>",
-                "Rubidium": "Rb<sup>+</sup>",
-                "Magnesium": "Mg<sup>2+</sup>",
-                "Calcium": "Ca<sup>2+</sup>",
-                "Barium": "Ba<sup>2+</sup>",
-                "Manganese(II)": "Mn<sup>2+</sup>",
-                "Iron(II)": "Fe<sup>2+</sup>",
-                "Copper(II)": "Cu<sup>2+</sup>",
-                "Zinc": "Zn<sup>2+</sup>",
-                "Cadmium": "Cd<sup>2+</sup>",
-                "Mercury(II)": "Hg<sup>2+</sup>",
-                "Tin(II)": "Sn<sup>2+</sup>",
-                "Lead(II)": "Pb<sup>2+</sup>",
-                "Strontium": "Sr<sup>2+</sup>",
-                "Nickel(II)": "Ni<sup>2+</sup>",
-                "Cobalt(II)": "Co<sup>2+</sup>",
-                "Mercury(II)": "Hg<sub>2</sub><sup>2+</sup>",
-                "Aluminium": "Al<sup>3+</sup>",
-                "Iron(III)": "Fe<sup>3+</sup>",
-                "Chromium(III)": "Cr<sup>3+</sup>",
-                "Gold(III)": "Au<sup>3+</sup>",
-                "Tin(IV)": "Sn<sup>4+</sup>",
-                "Lead(IV)": "Pb<sup>4+</sup>",
-                "Hydroxide": "OH<sup>-</sup>",
-                "Nitrate": "NO<sub>3</sub><sup>-</sup>",
-                "Nitrite": "NO<sub>2</sub><sup>-</sup>",
-                "Hydrogen Carbonate": "HCO<sub>3</sub><sup>-</sup>",
-                "Dihydrogen phosphate": "H<sub>2</sub>PO<sub>4</sub><sup>-</sup>",
-                "Hydrogen Sulfate": "HSO<sub>4</sub><sup>-</sup>",
-                "Ethanoate": "CH<sub>3</sub>COO<sup>-</sup>",
-                "Hypochlorite": "ClO<sup>-</sup>",
-                "Permanganate": "MnO<sub>4</sub><sup>-</sup>",
-                "Bisulfite": "HSO<sub>3</sub><sup>-</sup>",
-                "Hydride": "H<sup>-</sup>",
-                "Fluride": "F<sup>-</sup>",
-                "Chloride": "Cl<sup>-</sup>",
-                "Bromide": "Br<sup>-</sup>",
-                "Iodine": "I<sup>-</sup>",
-                "Chlorite": "ClO<sub>2</sub><sup>-</sup>",
-                "Chlorate": "ClO<sub>3</sub><sup>-</sup>",
-                "Cyanide": "CN<sup>-</sup>",
-                "Perchlorate": "ClO<sub>4</sub><sup>-</sup>",
-                "Carbonate": "CO<sub>3</sub><sup>2-</sup>",
-                "Sulfate": "SO<sub>4</sub><sup>2-</sup>",
-                "Sulfite": "SO<sub>3</sub><sup>2-</sup>",
-                "Sulphide": "S<sup>2-</sup>",
-                "Dichromate": "CrO<sub>4</sub><sup>2-</sup>",
-                "Chromate": "CrO<sub>4</sub><sup>2-</sup>",
-                "Hydrogen phosphate": "HPO<sub>4</sub><sup>2-</sup>",
-                "Oxide": "O<sup>2-</sup>",
-                "Peroxide": "O<sub>2</sub><sup>2-</sup>",
-                "Oxalate": "C<sub>2</sub>O<sub>4</sub><sup>2-</sup>",
-                "Phosphate": "PO<sub>4</sub><sup>3-</sup>",
-                "Phosphide": "P<sup>3-</sup>",
-                "Nitride": "N<sup>3-</sup>"
-            };
-            var ions = theIons; // for ion limiter
-            //for the ion limiter:
-                var ionsArray = [];
-                var ionsHtmlObject = {}; // for display in the ion limiter chooser
-                Object.keys(ions).forEach(function(ion) {
-                    ionsArray.push(ion); // array of ions
-                });
-                for (var i = 0; i < ionsArray.length; i++) { // Create the stuff in the ion limiter chooser thingy
-                    ionsHtmlObject[ionsArray[i]] = ionsArray[i] + " <input class=\"useIons\" style=\"height: 6vh; width: 6vh;\" type=\"checkbox\" id=\"${ionsArray[i]}\"><br>".replace("${ionsArray[i]}", "Use" + ionsArray[i]);
+    </div>
+    <form>
+        <span id="decap_span">No need for upper case<input type="checkbox" id="decap"></span>
+        <span id="restart_on_enter_span">Restart on check<input type="checkbox" id="restart_on_enter"></span>
+        <input type="button" name="button" value="start" onclick="prac1_return = startPrac1();">
+        <p id="variables_for_prac1"></p>
+        <p id="messeges_for_prac1"></p>
+        <textarea placeholder="insert answer here" onkeyup="if (event.keyCode==13) submitPrac1();" rows="1" name="prac_one_input"></textarea>
+        <input type="button" name="button" value="check" onclick="submitPrac1()">
+    </form>
+    <div id="score">
+        Correct: <span style="float:right" id="correct">0</span><br> Incorrect: <span style="float:right" id="incorrect">0</span></div>
+    <p id="correct_answer" style="color: crimson;"></p>
+    <p id="percentage_right"></p>
+    <script>
+        const theIons = {
+            "Hydrogen": "H<sup>+<\/sup>",
+            "Lithium": "Li<sup>+<\/sup>",
+            "Sodium": "Na<sup>+<\/sup>",
+            "Potassium": "K<sup>+<\/sup>",
+            "Copper(I)": "Cu<sup>+<\/sup>",
+            "Gold(I)": "Au<sup>+<\/sup>",
+            "Ammonium": "NH<sub>4<\/sub><sup>+<\/sup>",
+            "Caesium": "Cs<sup>+<\/sup>",
+            "Rubidium": "Rb<sup>+<\/sup>",
+            "Magnesium": "Mg<sup>2+<\/sup>",
+            "Calcium": "Ca<sup>2+<\/sup>",
+            "Barium": "Ba<sup>2+<\/sup>",
+            "Manganese(II)": "Mn<sup>2+<\/sup>",
+            "Iron(II)": "Fe<sup>2+<\/sup>",
+            "Copper(II)": "Cu<sup>2+<\/sup>",
+            "Zinc": "Zn<sup>2+<\/sup>",
+            "Cadmium": "Cd<sup>2+<\/sup>",
+            "Mercury(II)": "Hg<sup>2+<\/sup>",
+            "Tin(II)": "Sn<sup>2+<\/sup>",
+            "Lead(II)": "Pb<sup>2+<\/sup>",
+            "Strontium": "Sr<sup>2+<\/sup>",
+            "Nickel(II)": "Ni<sup>2+<\/sup>",
+            "Cobalt(II)": "Co<sup>2+<\/sup>",
+            "Mercury(II)": "Hg<sub>2<\/sub><sup>2+<\/sup>",
+            "Aluminium": "Al<sup>3+<\/sup>",
+            "Iron(III)": "Fe<sup>3+<\/sup>",
+            "Chromium(III)": "Cr<sup>3+<\/sup>",
+            "Gold(III)": "Au<sup>3+<\/sup>",
+            "Tin(IV)": "Sn<sup>4+<\/sup>",
+            "Lead(IV)": "Pb<sup>4+<\/sup>",
+            "Hydroxide": "OH<sup>-<\/sup>",
+            "Nitrate": "NO<sub>3<\/sub><sup>-<\/sup>",
+            "Nitrite": "NO<sub>2<\/sub><sup>-<\/sup>",
+            "Hydrogen Carbonate": "HCO<sub>3<\/sub><sup>-<\/sup>",
+            "Dihydrogen phosphate": "H<sub>2<\/sub>PO<sub>4<\/sub><sup>-<\/sup>",
+            "Hydrogen Sulfate": "HSO<sub>4<\/sub><sup>-<\/sup>",
+            "Ethanoate": "CH<sub>3<\/sub>COO<sup>-<\/sup>",
+            "Hypochlorite": "ClO<sup>-<\/sup>",
+            "Permanganate": "MnO<sub>4<\/sub><sup>-<\/sup>",
+            "Bisulfite": "HSO<sub>3<\/sub><sup>-<\/sup>",
+            "Hydride": "H<sup>-<\/sup>",
+            "Fluride": "F<sup>-<\/sup>",
+            "Chloride": "Cl<sup>-<\/sup>",
+            "Bromide": "Br<sup>-<\/sup>",
+            "Iodine": "I<sup>-<\/sup>",
+            "Chlorite": "ClO<sub>2<\/sub><sup>-<\/sup>",
+            "Chlorate": "ClO<sub>3<\/sub><sup>-<\/sup>",
+            "Cyanide": "CN<sup>-<\/sup>",
+            "Perchlorate": "ClO<sub>4<\/sub><sup>-<\/sup>",
+            "Carbonate": "CO<sub>3<\/sub><sup>2-<\/sup>",
+            "Sulfate": "SO<sub>4<\/sub><sup>2-<\/sup>",
+            "Sulfite": "SO<sub>3<\/sub><sup>2-<\/sup>",
+            "Sulphide": "S<sup>2-<\/sup>",
+            "Dichromate": "CrO<sub>4<\/sub><sup>2-<\/sup>",
+            "Chromate": "CrO<sub>4<\/sub><sup>2-<\/sup>",
+            "Hydrogen phosphate": "HPO<sub>4<\/sub><sup>2-<\/sup>",
+            "Oxide": "O<sup>2-<\/sup>",
+            "Peroxide": "O<sub>2<\/sub><sup>2-<\/sup>",
+            "Oxalate": "C<sub>2<\/sub>O<sub>4<\/sub><sup>2-<\/sup>",
+            "Phosphate": "PO<sub>4<\/sub><sup>3-<\/sup>",
+            "Phosphide": "P<sup>3-<\/sup>",
+            "Nitride": "N<sup>3-<\/sup>"
+        };
+        var ions = theIons; // mk cp for ion limiter
+        (function(ions, ionsArray, ionsHtmlObject) { // theIons, [], {}
+            Object.keys(ions).forEach(function(ion) {
+                ionsArray.push(ion); // array of ions
+            });
+            ionsArray.forEach( // Create stuff in ion limiter chooser thingy
+                ion => ionsHtmlObject[ion] = ion + " <input class=\"useIons\" style=\"height: 6vh; width: 6vh;\" type=\"checkbox\" id=\"${ion}\"><br>".replace("${ion}", "Use" + ion)
+
+            )
+            Object.keys(ionsHtmlObject).forEach(function(ion) {
+                document.getElementById('pick_ions').innerHTML = document.getElementById('pick_ions').innerHTML + ionsHtmlObject[ion];
+            });
+        }(theIons, [], {})) // ions, ionsArray, ionsHtmlObject
+
+        function startPrac1() {
+            document.getElementById('messeges_for_prac1').innerHTML = "...";
+            ions = (function(ionCheckList, ions, theIons) { // "ions" is the ions the player wants to use
+                if (document.getElementById("limit_ions").checked) {
+                    ions = {}; // clears ions, so that the ones that the user wants to use can be inserted in
+                    ionCheckList.filter(ion => ion.checked).forEach(checked => {
+                        ions[checked.id.replace('Use', '')] = theIons[checked.id.replace('Use', '')];
+                    })
+                    return ions
+                } else {
+                    return theIons // restores ions (in case they were changed last play)
                 }
-                Object.keys(ionsHtmlObject).forEach(function(ion) {
-                    document.getElementById('pick_ions').innerHTML = document.getElementById('pick_ions').innerHTML + ionsHtmlObject[ion];
-                });
-            // end for ion limiter
-            function startPrac1() {
-                var variables_for_prac1 = document.getElementById('variables_for_prac1'); // where the question is placed
-                document.getElementById('messeges_for_prac1').innerHTML = "...";
-                // for the ion limiter
-                    if (document.getElementById("limit_ions").checked) {
-                        ions = {}; // clears ions, so that the ones that the user wants to use can be inserted in
-                        var useIons = document.getElementsByClassName("useIons");
-                        for (var i = 0; i < useIons.length; i++) {
-                            if (useIons[i].checked) {
-                                ions[useIons[i].id.replace('Use','')] = theIons[useIons[i].id.replace('Use','')];
-                            }
-                        }
-                    }
-                    else {
-                        ions = theIons; // restores ions (in case they were changed last play)
-                    }
-                // end for the ion limiter
-                var count = 0;
-                for (var prop in ions) // choose random property from ions
-                    if (Math.random() < 1/++count)
-                       var answer = prop;
-                variables_for_prac1.innerHTML = "Ion: " + ions[answer]; // "ions[answer]" being the question
+            }(Array.from(document.getElementsByClassName("useIons")), ions, theIons)); // ionCheck, ions, theIon
+            return (function(varsForPrac1) {
+                let count = 0;
+                for (let prop in ions) // choose random property from ions
+                    if (Math.random() < 1 / ++count) var answer = prop; // This is a var
+                varsForPrac1.innerHTML = "Ion: " + ions[answer]; // "ions[answer]" is the *question*, not the answer
                 return answer;
-            }
-            function submitPrac1() {
-                var correct = document.getElementById('correct').innerHTML;
-                var incorrect = document.getElementById('incorrect').innerHTML;
-                var input = document.getElementsByName("prac_one_input")[0].value;
-                var messeges = document.getElementById('messeges_for_prac1');
-                var restart_on_enter = document.getElementById("restart_on_enter").checked;
-                var answer = prac1_return;
-                var decimal_right = 0;
-				if (document.getElementById("decap").checked) { // converts answer to lowercase, so the user doesnt need to use uppercase
-					answer = answer.toLowerCase();
-					input = input.toLowerCase();
-				}
+            }(document.getElementById('variables_for_prac1')));
+        }
+
+        function submitPrac1() {
+            answer_and_input = (function(ans, input) {
+                if (document.getElementById("decap").checked) { // converts answer to lowercase, so the user doesnt need to use uppercase
+                    ans = ans.toLowerCase();
+                    input = input.toLowerCase();
+                }
+                return {
+                    answer: ans,
+                    input: input
+                };
+            }(prac1_return, document.getElementsByName("prac_one_input")[0].value));
+            (function(answer, input, restart_on_enter, correct, incorrect, messeges, decimal_right) {
                 if (input.trim() == answer) {
                     messeges.innerHTML = "Correct!!! Nice job :)";
                     document.getElementById('correct').innerHTML = Number(correct) + 1;
                     if (restart_on_enter) {
                         prac1_return = startPrac1();
                     }
-                }
-                else  if (input.trim().length > 3) { // if it is not equal to the answer & is more than 3 chars long, it is wrong
-                    for (var i = 0; i < input.length; i++) {
-                        if (input[i] != answer[i]) {
-                            decimal_right = i;
-                            break
-                        }
-                    }
-                    decimal_right = decimal_right / answer.length
+                } else if (input.trim().length > 3) { // if it is not equal to the answer & is more than 3 chars long, it is wrong
+                    decimal_right = Array.prototype.filter.call(input, (char, i) => char == answer[i]).join("").length / answer.length
                     document.getElementById('incorrect').innerHTML = (Number(incorrect) + 1 - decimal_right).toFixed(3);
                     messeges.innerHTML = "Sorry... That's incorrect.";
                     document.getElementById("percentage_right").innerHTML = (decimal_right * 100).toFixed(3) + "%";
@@ -299,7 +310,18 @@
                     }
                 }
                 document.getElementsByName("prac_one_input")[0].value = ""; // clears input.
-            }
-        </script>
-    </body>
+            }(
+                answer_and_input.answer,
+                answer_and_input.input,
+                document.getElementById("restart_on_enter").checked,
+                document.getElementById('correct').innerHTML,
+                document.getElementById('incorrect').innerHTML,
+                document.getElementById('messeges_for_prac1'),
+                0
+            ))
+        }
+
+    </script>
+</body>
+
 </html>
