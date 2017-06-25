@@ -10,7 +10,9 @@ This project does not do what it was supposed to.
 - Repitition (This is what was attempted in this project)
 You can read more [here](https://www.quora.com/How-does-the-human-brain-decide-which-memories-to-store/answer/Paul-King-2?srid=JiCC)
 
-A problem with this project is that it does more harm than good. If you wish to learn the ions, do it naturally - by doing a lot of problems. The ions that turn up more frequently, you will remember; but the ones that turn up less, you don't need to.
+A problem with this project is that it does more harm than good. If you wish to learn the ions, do it "naturally" - by doing a lot of problems. The ions that turn up more frequently, you will remember; but the ones that turn up less, you don't need to.
+
+I should note that it's not effeicient because it's natural. "Natural" is not an argument.
 
 ## Ion name tester ##
 ![Name test screenshot](screenshots/ion_name_test_screen_shot.JPG)
